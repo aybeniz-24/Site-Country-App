@@ -445,7 +445,7 @@ h3, p{
 @media only screen and (max-width: 768px) {
     #mainTop {
         width: 90%;
-        padding: 20px;
+        padding: 20px 0;
         gap: 10px;
     }
     #mainTop h1 {
