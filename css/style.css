@@ -441,7 +441,6 @@ h3, p{
     }
 }
 
-/* MainTop responsivlik */
 @media only screen and (max-width: 768px) {
     #mainTop {
         width: 90%;
@@ -455,7 +454,7 @@ h3, p{
         font-size: 1.5em;
     }
     .btn {
-        width: 140px;
+        width: 100px;
         height: 35px;
         font-size: 1.2em;
     }
@@ -464,7 +463,6 @@ h3, p{
         padding: 8px 30px;
     }
 }
-/* MainTop responsivlik - 350px ekran ölçüsü üçün */
 @media only screen and (max-width: 350px) {
     #mainTop {
         width: 100%;
