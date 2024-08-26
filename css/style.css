@@ -93,6 +93,7 @@ main{
 }
 
 #mainTop{
+    min-width: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -108,8 +109,7 @@ h2{
     color: #8b5cf6;
 }
 .btn{
-    max-width: 160px;
-    min-width: 60px;
+    width: 160px;
     height: 40px;
     color: #fff;
     padding: 10px 40px;
@@ -412,3 +412,55 @@ h3, p{
     }
 }
 
+
+
+/* BigCard responsivlik */
+@media only screen and (max-width: 768px) {
+    #bigcard {
+        width: 90%;
+        max-width: 100%;
+        padding: 20px;
+        flex-direction: column;
+    }
+    #bigcardimg {
+        width: 100%;
+        img {
+            height: auto;
+            width: 100%;
+        }
+    }
+    #metn {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+    }
+    .metn {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+    }
+}
+
+/* MainTop responsivlik */
+@media only screen and (max-width: 768px) {
+    #mainTop {
+        width: 90%;
+        padding: 20px;
+        gap: 10px;
+    }
+    #mainTop h1 {
+        font-size: 2em;
+    }
+    #mainTop h2 {
+        font-size: 1.5em;
+    }
+    .btn {
+        width: 140px;
+        height: 35px;
+        font-size: 1.2em;
+    }
+    .btn1, .btn2, .btn3 {
+        font-size: 1.2em;
+        padding: 8px 30px;
+    }
+}
