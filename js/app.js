@@ -10,8 +10,8 @@ function light() {
     const main = document.querySelector("main");
     const h1 = document.querySelector("h1")
     const footer = document.querySelector("footer");
+    const metn = document.querySelector("#metn");
     const footertext = document.querySelectorAll(".footertext");
-
 
     if (sun.style.display === 'block' || sun.style.display === '') {
         sun.style.display = 'none';
@@ -20,10 +20,10 @@ function light() {
         document.body.classList.add('dark-mode');
         nav.style.background = '#111827';
         main.style.background = '#1f2937';
+        metn.style.background = '#718096';
         h1.style.color = '#d4d4d8';
         footer.style.background = '#111827';
         moon.style.color = '#d4d4d8';
-        metn.style.background = '#718096'
         for (let i = 0; i < footertext.length; i++) {
             footertext[i].style.color = "#d4d4d8"
         }
@@ -41,6 +41,7 @@ function light() {
         h1.style.color = 'initial';
         footer.style.background = '#fff';
         slidermenu.style.background = 'initial';
+        metn1.style.background = 'initial';
         metn.style.background = '#fff';
         slidermenu.style.color = 'initial';
         for (let i = 0; i < link.length; i++) {
@@ -2332,7 +2333,7 @@ function big() {
             <div id="bigcardimg">
                 <img src="${item.flag}" alt="img" />
             </div>
-            <div id="metn">
+            <div id="metn" class="metn">
                 <h3>${item.name}</h3>
                 <p>${item.region}</p>
                 <p>${item.id}</p>
@@ -2397,20 +2398,16 @@ function mainCard(id) {
     const item = data.find(item => item.id === id);
     if (item) {
         container.innerHTML = `
-               <div id="bigcard">
-                <div id="bigcardimg" class="bigcardimg">
-                    <img src="${item.flag}" alt="Flag of ${item.name}" />
+               <div data-aos="fade-up" onclick="mainCard('${item.id}')" class="cards" style="">
+                    <img src="${item.flag}" alt="img" />
+                    <p style="text-transform: uppercase">${item.region}</p>
+                    <p>${item.id}</p>
+                    <h3>${item.name}, ${item.capital}</h3>
+                    <div id="span" class="span">
+                        <p>Population: ${item.population}</p>
+                        <span>${item.area} km<sup>2</sup></span>
+                    </div>
                 </div>
-                <div id="metn" class="metn">
-                    <h3>${item.name}</h3>
-                    <p><strong>Region:</strong> ${item.region}</p>
-                    <p><strong>ID:</strong> ${item.id}</p>
-                    <p><strong>Area:</strong> ${item.area} km<sup>2</sup></p>
-                    <p><strong>Population:</strong> ${item.population}</p>
-                    <p><strong>Capital:</strong> ${item.capital}</p>
-                </div>
-            </div>
-
             `;
         backButton.classList.remove('hidden')
     }
@@ -2501,243 +2498,6 @@ function selectBorder(elementId) {
     secilmeyen = selectedElement;
 }
 
-// function showAsia(e) {
-//     selectBorder('borderAsia');
-
-//     e.preventDefault();
-
-//     const container = document.getElementById('container');
-//     container.innerHTML = '';
-//     btn.style.display = 'none';
-
-//     data.map(item => {
-//         if (item.region === 'Asia') {
-//             const card = document.createElement('div');
-//             card.className = 'cards';
-
-//             card.innerHTML = `
-//                         <img src="${item.flag}" alt="img" />
-//                         <p style="text-transform: uppercase">${item.region}</p>
-//                         <p>${item.id}</p>
-//                         <h3>${item.name}, ${item.capital}</h3>
-//                         <div id="span">
-//                             <p>Population: ${item.population}</p>
-//                             <span>${item.area} km<sup>2</sup></span>
-//                         </div>
-//                     `;
-//             container.appendChild(card);
-//         }
-//     });
-// }
-
-// function showEurope(e) {
-//     selectBorder('borderEurope');
-//     e.preventDefault();
-
-//     const container = document.getElementById('container');
-//     container.innerHTML = '';
-//     btn.style.display = 'none';
-
-//     data.map(item => {
-//         if (item.region === 'Europe') {
-//             const card = document.createElement('div');
-//             card.className = 'cards';
-
-//             card.innerHTML = `
-//                         <img src="${item.flag}" alt="img" />
-//                         <p style="text-transform: uppercase">${item.region}</p>
-//                         <p>${item.id}</p>
-//                         <h3>${item.name}, ${item.capital}</h3>
-//                         <div id="span">
-//                             <p>Population: ${item.population}</p>
-//                             <span>${item.area} km<sup>2</sup></span>
-//                         </div>
-//                     `;
-//             container.appendChild(card);
-//         }
-//     });
-// }
-
-// function showAmericas(e) {
-//     selectBorder('borderAmericas');
-
-//     e.preventDefault();
-
-//     const container = document.getElementById('container');
-//     container.innerHTML = '';
-//     btn.style.display = 'none';
-
-//     data.map(item => {
-//         if (item.region === 'Americas') {
-//             const card = document.createElement('div');
-//             card.className = 'cards';
-
-//             card.innerHTML = `
-//                         <img src="${item.flag}" alt="img" />
-//                         <p style="text-transform: uppercase">${item.region}</p>
-//                         <p>${item.id}</p>
-//                         <h3>${item.name}, ${item.capital}</h3>
-//                         <div id="span">
-//                             <p>Population: ${item.population}</p>
-//                             <span>${item.area} km<sup>2</sup></span>
-//                         </div>
-//                     `;
-//             container.appendChild(card);
-//         }
-//     });
-// }
-
-// function showOceania(e) {
-//     selectBorder('borderOceania');
-
-//     e.preventDefault();
-
-//     const container = document.getElementById('container');
-//     container.innerHTML = '';
-//     btn.style.display = 'none';
-
-//     data.map(item => {
-//         if (item.region === 'Oceania') {
-//             const card = document.createElement('div');
-//             card.className = 'cards';
-
-//             card.innerHTML = `
-//                         <img src="${item.flag}" alt="img" />
-//                         <p style="text-transform: uppercase">${item.region}</p>
-//                         <p>${item.id}</p>
-//                         <h3>${item.name}, ${item.capital}</h3>
-//                         <div id="span">
-//                             <p>Population: ${item.population}</p>
-//                             <span>${item.area} km<sup>2</sup></span>
-//                         </div>
-//                     `;
-//             container.appendChild(card);
-//         }
-//     });
-// }
-
-// function showAntarctic(e) {
-//     selectBorder('borderAntarctic');
-
-//     e.preventDefault();
-
-//     const container = document.getElementById('container');
-//     container.innerHTML = '';
-//     btn.style.display = 'none';
-
-//     data.map(item => {
-//         if (item.region === 'Antarctic') {
-//             const card = document.createElement('div');
-//             card.className = 'cards';
-
-//             card.innerHTML = `
-//                         <img src="${item.flag}" alt="img" />
-//                         <p style="text-transform: uppercase">${item.region}</p>
-//                         <p>${item.id}</p>
-//                         <h3>${item.name}, ${item.capital}</h3>
-//                         <div id="span">
-//                             <p>Population: ${item.population}</p>
-//                             <span>${item.area} km<sup>2</sup></span>
-//                         </div>
-//                     `;
-//             container.appendChild(card);
-//         }
-//     });
-// }
-
-// function showAfrica(e) {
-//     selectBorder('borderAfrica');
-
-//     e.preventDefault();
-
-//     const container = document.getElementById('container');
-//     container.innerHTML = '';
-//     btn.style.display = 'none';
-
-//     data.map(item => {
-//         if (item.region === 'Africa') {
-//             const card = document.createElement('div');
-//             card.className = 'cards';
-
-//             card.innerHTML = `
-//                         <img src="${item.flag}" alt="img" />
-//                         <p style="text-transform: uppercase">${item.region}</p>
-//                         <p>${item.id}</p>
-//                         <h3>${item.name}, ${item.capital}</h3>
-//                         <div id="span">
-//                             <p>Population: ${item.population}</p>
-//                             <span>${item.area} km<sup>2</sup></span>
-//                         </div>
-//                     `;
-//             container.appendChild(card);
-//         }
-//     });
-// }
-
-
-
-
-
-
-
-
-// function showRegion(regionName, borderId, e) {
-//     selectBorder(borderId);
-
-//     e.preventDefault();
-
-//     const container = document.getElementById('container');
-//     container.innerHTML = '';
-
-//     btn.style.display = 'none';
-
-//     data.map(item => {
-//         if (item.region === regionName) {
-//             const card = document.createElement('div');
-//             card.className = 'cards';
-
-//             card.innerHTML = `
-//                         <img src="${item.flag}" alt="img" />
-//                         <p style="text-transform: uppercase">${item.region}</p>
-//                         <p>${item.id}</p>
-//                         <h3>${item.name}, ${item.capital}</h3>
-//                         <div id="span">
-//                             <p>Population: ${item.population}</p>
-//                             <span>${item.area} km<sup>2</sup></span>
-//                         </div>
-//                     `;
-//             container.appendChild(card);
-//         }
-//     });
-// }
-
-
-
-// function showAsia(e) {
-//     showRegion('Asia', 'borderAsia', e);
-// }
-
-// function showEurope(e) {
-//     showRegion('Europe', 'borderEurope', e);
-// }
-
-// function showAmericas(e) {
-//     showRegion('Americas', 'borderAmericas', e);
-// }
-
-// function showOceania(e) {
-//     showRegion('Oceania', 'borderOceania', e);
-// }
-
-// function showAntarctic(e) {
-//     showRegion('Antarctic', 'borderAntarctic', e);
-// }
-
-// function showAfrica(e) {
-//     showRegion('Africa', 'borderAfrica', e);
-// }
-
-
 function showRegion(regionName, borderId, e) {
     e.preventDefault();
     
@@ -2772,7 +2532,6 @@ function showRegion(regionName, borderId, e) {
         }
     });
 
-    // Mobil üçün menyunun bağlanması
     if (window.innerWidth <= 768) {
         document.getElementById('slidermenu').style.display = 'none';
     }
